@@ -12,11 +12,13 @@ void enqueue(int value){
 	}
 	arr[++rear]=value;
 }
-void dequeue(){
+int dequeue(){
+	int y=arr[front];
 	front ++;
 	if(front>rear){
 		front=rear=-1;
 	}
+	return y;
 }
 void display(){
 	printf("Queue: ");
