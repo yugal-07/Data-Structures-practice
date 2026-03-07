@@ -1,64 +1,44 @@
+//insert nth term in linked list
 #include<stdio.h>
 #include<stdlib.h>
-
-struct node{
-    int data;
-    struct node* next;
+struct x{
+	int data;
+	struct x *next;
 };
-
-struct node* head = NULL;
-
-void insert_nth(int value, int pos){
-
-    struct node *newnode, *temp;
-    newnode = (struct node*)malloc(sizeof(struct node));
-    newnode->data = value;
-    newnode->next = NULL;
-
-    if(pos == 1){
-        newnode->next = head;
-        head = newnode;
-        return;
-    }
-
-    temp = head;
-
-    for(int i = 1; i < pos-1; i++){
-        temp = temp->next;
-
-        if(temp == NULL){
-            printf("Position out of range\n");
-            return;
-        }
-    }
-
-    newnode->next = temp->next;
-    temp->next = newnode;
+struct x *t;
+void insert(int value,int pos){
+	struct x *n1=(struct x *)malloc(sizeof(struct x));
+	n1->data=value;
+	n1->next=NULL;
+	if(pos==1){
+		n1->next=t;
+		t=n1;
+		return;
+	}
+	struct x *temp=t;
+	for(int i=1;i<pos-1;i++){
+		temp=temp->next;
+		if(temp==NULL){
+			printf("too far from the list");
+			return ;
+		}
+	}	
+	n1->next=temp->next;
+	temp->next=n1;
 }
-
 void print(){
-    struct node* temp = head;
-
-    printf("List: ");
-    while(temp != NULL){
-        printf("%d -> ", temp->data);
-        temp = temp->next;
-    }
-    printf("NULL\n");
+	struct x *temp=t;
+	while(temp!=NULL){
+		printf("%d ",temp->data);
+		temp=temp->next;
+	}
 }
-
 int main(){
-
-    insert_nth(10,1);
-    insert_nth(20,2);
-    insert_nth(30,3);
-
-    print();
-
-    insert_nth(15,2);
-
-    printf("After inserting at position 2:\n");
-    print();
-
-    return 0;
+	insert(10,1);
+	insert(20,1);
+	insert(30,1);
+	insert(40,1);
+	insert(100,3);
+	print();
+	
 }
