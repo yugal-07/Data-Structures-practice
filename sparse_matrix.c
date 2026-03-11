@@ -13,10 +13,10 @@ int main(){
       for(int j=0;j<cols;j++){
         scanf("%d",&matrix[i][j]);
       }
-    }  
+    } 
     sparse[0][0]=rows;
     sparse[0][1]=cols;
-    sparse[0][2]=0;      //number of non-zero elements
+    sparse[0][2]=0;    //number of non-zero elements
     int k=1;
     for(int i=0;i<rows;i++){
       for(int j=0;j<cols;j++){
@@ -30,7 +30,7 @@ int main(){
       }
     }
 
-    for(int i=1;i<=sparse[0][2];i++){
+    for(int i=0;i<=sparse[0][2];i++){
       printf("%d %d %d",sparse[i][0],sparse[i][1],sparse[i][2]);
       printf("\n");
     }
