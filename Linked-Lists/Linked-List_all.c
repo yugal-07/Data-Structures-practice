@@ -107,6 +107,17 @@ void reverse(){
   t=prev;
 }
 
+void last_to_first(){
+  struct x *temp=t;
+  while(temp->next->next!=NULL){
+    temp=temp->next;
+  }
+  struct x *temp2=temp->next;
+  temp2->next=t;
+  temp->next=NULL;
+  t=temp2;
+}
+
 void search(int value){
   struct x *temp=t;
   int i=1;
@@ -243,6 +254,7 @@ int main(){
   max_min();
   sort();print();
   reverse();print();
+  last_to_first();print();
 
   return 0;
 }
