@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 struct x{
@@ -20,6 +21,7 @@ void insert_at_beginning(int value){
   struct x *n1=(struct x *)malloc(sizeof(struct x));
   n1->data=value;
   n1->next=t;
+  t=n1;
 }
 
 void insert_at_end(int value){
@@ -236,25 +238,127 @@ void sort(){
 }
 
 int main(){
+    int choice = 0;
 
-  insert_at_end(10);print();
-  insert_at_end(20);print();
-  insert_at_end(30);print();
-  insert_at_end(40);print();
-  insert_at_end(50);print();
-  insert_at_end(60);print();
-  delete_beginning();print();
-  delete_end();print();
-  delete_Nth_term(2);print();
-  middle_element();
-  insert_at_end(100);insert_at_end(100);print();
-  remove_duplicate();print();
-  swap(1,2);print();
-  search(100);count();
-  max_min();
-  sort();print();
-  reverse();print();
-  last_to_first();print();
+    while (choice != 100) {
+        printf("\n========== Linked List Menu ==========\n");
+        printf(" 0.  Display Linked List\n");
+        printf(" 1.  Insert at beginning\n");
+        printf(" 2.  Insert at Nth position\n");
+        printf(" 3.  Insert at end\n");
+        printf(" 4.  Delete at end\n");
+        printf(" 5.  Delete at beginning\n");
+        printf(" 6.  Delete Nth node\n");
+        printf(" 7.  Reverse Linked List\n");
+        printf(" 8.  Swap two nodes\n");
+        printf(" 9.  Find middle node\n");
+        printf("10.  Search an element\n");
+        printf("11.  Move last node to first\n");
+        printf("12.  Bubble sort\n");
+        printf("13.  Find max and min\n");
+        printf("14.  Count number of nodes\n");
+        printf("15.  Find element at Nth node\n");
+        printf("17.  Remove duplicate nodes\n");
+        printf("100. Exit\n");
+        printf("======================================\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        int value, pos;
+
+        switch (choice) {
+            case 0:
+                print();
+                break;
+
+            case 1:
+                printf("Enter the value: ");
+                scanf("%d", &value);
+                insert_at_beginning(value);
+                break;
+
+            case 2:
+                printf("Enter value and position: ");
+                scanf("%d %d", &value, &pos);
+                insert_Nth_term(value, pos);
+                break;
+
+            case 3:
+                printf("Enter the value: ");
+                scanf("%d", &value);
+                insert_at_end(value);
+                break;
+
+            case 4:
+                delete_end();
+                break;
+
+            case 5:
+                delete_beginning();
+                break;
+
+            case 6:
+                printf("Enter the position: ");
+                scanf("%d", &pos);
+                delete_Nth_term(pos);
+                break;
+
+            case 7:
+                reverse();
+                break;
+
+            case 8:
+                printf("Enter two positions to swap: ");
+                int posx, posy;
+                scanf("%d %d", &posx, &posy);
+                swap(posx, posy);
+                break;
+
+            case 9:
+            case 16:
+                middle_element();
+                break;
+
+            case 10:
+                printf("Enter the element to search: ");
+                scanf("%d", &value);
+                search(value);
+                break;
+
+            case 11:
+                last_to_first();
+                break;
+
+            case 12:
+                sort();
+                break;
+
+            case 13:
+                max_min();
+                break;
+
+            case 14:
+                count();
+                break;
+
+            case 15:
+                printf("Enter the position: ");
+                scanf("%d", &pos);
+                find_node_value(pos);
+                break;
+
+            case 17:
+                remove_duplicate();
+                break;
+
+            case 100:
+                printf("Exiting...\n");
+                break;
+
+            default:
+                printf("Invalid choice! Please select from the menu.\n");
+        }
+    }
 
   return 0;
 }
