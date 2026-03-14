@@ -2,7 +2,7 @@
 
 int main(){
     int rows,cols;
-    int matrix[10][10],sparse[20][3];
+    int matrix[10][10],sparse[50][3];
     printf("Enter the number of rows:");
     scanf("%d",&rows);
     printf("Enter the number of columns:");

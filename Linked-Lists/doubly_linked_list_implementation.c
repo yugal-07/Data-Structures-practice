@@ -35,7 +35,7 @@ void printrev(){
 	if(temp2==NULL){
 		return;
 	}
-	while(temp2!=NULL){
+	while(temp2->next!=NULL){
 		temp2=temp2->next;
 	}
 	while(temp2!=NULL){
