@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #include<stdlib.h>
 struct x{
@@ -238,11 +237,11 @@ void sort(){
 }
 
 int main(){
-    int choice = 0;
+    int choice = 1234;
 
-    while (choice != 100) {
+    while (choice != 0) {
         printf("\n========== Linked List Menu ==========\n");
-        printf(" 0.  Display Linked List\n");
+        printf(" 0.  Exit\n");
         printf(" 1.  Insert at beginning\n");
         printf(" 2.  Insert at Nth position\n");
         printf(" 3.  Insert at end\n");
@@ -259,18 +258,12 @@ int main(){
         printf("14.  Count number of nodes\n");
         printf("15.  Find element at Nth node\n");
         printf("17.  Remove duplicate nodes\n");
-        printf("100. Exit\n");
         printf("======================================\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
-
         int value, pos;
 
         switch (choice) {
-            case 0:
-                print();
-                break;
-
             case 1:
                 printf("Enter the value: ");
                 scanf("%d", &value);
@@ -351,13 +344,14 @@ int main(){
                 remove_duplicate();
                 break;
 
-            case 100:
+            case 0:
                 printf("Exiting...\n");
                 break;
 
             default:
                 printf("Invalid choice! Please select from the menu.\n");
         }
+      print();
     }
 
   return 0;
