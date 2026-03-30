@@ -1,23 +1,22 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
-struct x{
+struct node{
   int data;
-  struct x *left;
-  struct x *right;
+  struct node *left;
+  struct node *right;
 };
-struct x *t;
+struct node *root;
 void insert(int value){
-  struct x *n1=(struct x *)malloc(sizeof(struct x));
+  struct node *n1=(struct node *)malloc(sizeof(struct node));
   n1->data=value;
   n1->left=NULL;
   n1->right=NULL;
-
-  if(t==NULL){
-    t=n1;
+  if(root==NULL){
+    root=n1;
     return;
   }
-  struct x *temp=t;
+  struct node *temp=root;
   while(temp!=NULL){
     if(n1->data>temp->data){
       if(temp->right==NULL){
@@ -35,10 +34,8 @@ void insert(int value){
     }
   }
 }
-//create a search function  --DONE
-//also, try to create insert and search using recursion
 bool search(int value){
-  struct x *temp=t;
+  struct node *temp=root;
   while(temp!=NULL){
     if(temp->data==value){
       return 1;
@@ -56,6 +53,7 @@ int main(){
   insert(10);
   insert(20);
   insert(30);
+
   int value;
   scanf("%d",&value);
 
@@ -65,6 +63,7 @@ int main(){
   else{
     printf("Not found");
   }
+
   printf("\n");
   return 0;
 }
