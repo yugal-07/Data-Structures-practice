@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 struct x{
   int data;
   struct x *left;
@@ -34,7 +35,7 @@ void insert(int value){
     }
   }
 }
-//create a search function --DONE
+//create a search function  --DONE
 //also, try to create insert and search using recursion
 bool search(int value){
   struct x *temp=t;
