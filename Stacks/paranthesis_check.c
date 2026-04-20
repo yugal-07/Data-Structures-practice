@@ -1,47 +1,47 @@
-//paranthesis check
-#include<stdio.h>
-#include<string.h>
-#define maxx 101
-int arr[maxx];
+//stack ADT and paranthesis matching
+#include <stdio.h>
+#include <string.h>
+#define max 101
+int arr[max];
 int top=-1;
 void push(int value){
-	arr[++top]=value;
+  arr[++top]=value;
 }
 void pop(){
-	top--;
+  top--;
 }
 int isempty(){
-	if(top==-1){
-		return 1;
-	}
-	else{
-		return 0;
-	}
+  if(top==-1)return 1;
+  return 0;
 }
-void ParaCheck(char st[]){
-	int len=strlen(st);
-	for(int i=0;i<len;i++){
-		if(st[i]=='[' ||st[i]=='{' ||st[i]=='('){
-			push(st[i]);
-		}
-		else if((arr[top]=='{' && st[i]=='}') ||(arr[top]=='(' && st[i]==')') ||(arr[top]=='[' && st[i]==']')){
-			pop();
-		}
-	}
-	if(isempty()){
-		printf("Paranthesis Balanced");
-	}
-	else{
-		printf("Paranthesis Unbalanced");
-	}
-	printf("\n");
+void paranthesis_matching(char st[]){
+  int len=strlen(st);
+  for(int i=0;i<len;i++){
+    if(st[i]=='[' || st[i]=='(' || st[i]=='{'){
+      push(st[i]);
+    }
+    else if(st[i]=='}' && arr[top]=='{' ||
+            st[i]==')' && arr[top]=='(' ||
+            st[i]==']' && arr[top]=='[' ){
+      pop();
+    }
+    else if(st[i]==']' || st[i]==')' || st[i]=='}'){
+      push(st[i]);
+    }
+  }
+  if(isempty()){
+    printf("paranthesis balanced\n");
+  }
+  else{
+    printf("paranthesis unbalanced\n");
+  }
 }
 int main(){
-	char st[maxx];
-	printf("enter the equation:");
-	fgets(st,maxx,stdin);
+  char st[20];
+  printf("Enter the equation:");
+  scanf("%s",&st);
+  paranthesis_matching(st);
 
-	ParaCheck(st);
-
-	return 0;
+  return 0;
 }
+
